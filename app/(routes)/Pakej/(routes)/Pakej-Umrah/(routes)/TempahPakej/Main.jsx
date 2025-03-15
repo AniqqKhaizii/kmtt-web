@@ -104,7 +104,6 @@ const Main = () => {
 				);
 				const packagesData = response.data;
 				setPackages(packagesData);
-				console.log("packagesData", packagesData);
 				setRoomPrices({
 					Berdua: {
 						adult: packagesData[0].Adult_Double,
@@ -178,6 +177,7 @@ const Main = () => {
 		updatedRooms[index].childWithBed = 0;
 
 		setRooms(updatedRooms);
+		console.log("updatedRooms:", updatedRooms);
 		handleCardSelect(value);
 	};
 
@@ -234,8 +234,8 @@ const Main = () => {
 	const handleNextStep = (e) => {
 		if (currentStep === 1) {
 			e.preventDefault();
-			const pilihanBilik = document.getElementById("roomType").value;
-			console.log("pilihanBilik", pilihanBilik);
+			const pilihanBilik = [...rooms][0].roomType;
+			console.log("pilihanBilik:", pilihanBilik);
 
 			if (!pilihanBilik) {
 				setShowAlert(true);
